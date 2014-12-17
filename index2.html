@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+		<title>Youtube</title>
+		<Link rel = "stylesheet" href = "bootstrap/css/bootstrap.min.css" type = "text/css"/>
+		<Link rel = "stylesheet" href = "bootstrap/css/bootstrap.css.map" type = "text/css"/>
+		<Link rel = "stylesheet" href = "bootstrap/css/bootstrap-theme.css" type = "text/css"/>
+		<Link rel = "stylesheet" href = "bootstrap/css/bootstrap-theme.css.map" type = "text/css"/>
+		<Link rel = "stylesheet" href = "bootstrap/css/bootstrap-theme.min.css" type = "text/css"/>
+		<link rel='stylesheet' href='css/styles.css' type='text/css'>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-inverse" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Home</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li>
+						<form class="navbar-form navbar-left" role="search">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							</div>
+							<button type="submit" class="btn btn-primary dropdown-toggle">Submit</button>
+						</form>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		<div class="navbar navbar-inverse navbar-fixed-bottom">
+			<div class="container">
+				<p class="navbar-text pull-left">Site Built By: Brandon Cospin</p>
+				<a href="https://github.com/alfpain" target="blank" class="navbar-btn btn-info btn pull-right">Look my Github</a>
+			</div>
+		</div>
+		<div class="container">
+		<div class="jumbotron top">
+			<div class = "row">
+				<div class = "col-md-12">
+					<img src= "https://pbs.twimg.com/profile_images/532967158980952066/BcHAJIfC_400x400.jpeg" class="col-xs-5 img-responsive col-md-2">	
+					<img src= "http://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Roadrunner_Records_Logo.svg/500px-Roadrunner_Records_Logo.svg.png" class="col-xs-7 img-responsive col-md-6">
+					<a href="https://twitter.com/Vevo" target="blank">
+						<img src= "http://icons.iconarchive.com/icons/hopstarter/social-networking/128/Twitter-icon.png" class="col-xs-4z img-responsive col-md-2">
+					</a>
+					<a href="https://www.facebook.com/VEVO" target="blank">
+						<img src= "http://icons.iconarchive.com/icons/hopstarter/social-networking/128/Facebook-icon.png" class="col-xs-4 img-responsive col-md-2">
+					</a>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<div class = "container">
+			<div class = "row">
+				<div class = "col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">Lista</div>
+						<div class = "panel-body">
+							<ul data-bind="foreach: model.items">
+								<div data-bind = "text: snippet.title"></div>
+								<img width="16px" height="16px" data-bind="attr:{src: snippet.thumbnails.default.url}" />
+							</ul>
+
+						</div>
+					</div>
+				</div>
+				<div class = "col-md-8">
+						<div class="panel panel-default">
+						<div class="panel-heading">Videos</div>
+						<div class = "panel-body">
+							<iframe id="ytplayer" type="text/html" width="720" height="405"
+src="https://www.youtube.com/embed/M7lc1UVf-VE"
+frameborder="0" allowfullscreen></iframe>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-3.2.0.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/npm.js"></script>
+		
+		<script type="text/javascript" src="js/script.js"></script>
+	</body>
+<!-- AIzaSyDkKZ_c3uy_YS3r-fzb63DwlAk4xrKEJ48 -->
+</html>

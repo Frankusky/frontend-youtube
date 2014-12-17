@@ -1,4 +1,119 @@
-<!--
-Usa este archivo para tu proyecto. No olvides hacer
-la estructura correta y guardar TODO tu CSS en el archivo styles.css
- -->
+<!Doctype HTML>
+<html>
+	<head>
+		<title>Frontend Youtube</title>
+		<!--Loading CSS-->
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css.map">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css.map">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<!--End loading CSS-->
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" >
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				<a class="navbar-brand" href="#">Home</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Filters <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Most viewed</a></li>
+								<li><a href="#">Less viewed</a></li>
+								<li><a href="#">Best rating</a></li>
+								<li><a href="#">Worst rating</a></li>
+								<li><a href="#">Alphabetical</a></li>
+							</ul>
+						</li>
+						<form class="navbar-form navbar-left" role="search">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							</div>
+							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+						</form>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+
+		<div class="jumbotron top">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<img src="images/Vevo-logo-640x223.png" class="img-responsive">
+					</div>
+					<div class="col-md-6">
+						<div class="ico"><img src="images/facebook.png" class="img-responsive"></div>
+						<div class="ico"><img src="images/twitter.png" class="img-responsive"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Bottom footer navbar-->
+		<div class="container">
+			<div class="row">
+				<!--List of the filtered videos-->
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Video channel</h3>
+						</div>
+						<div class="panel-body">
+							<!--Knockout showing data-->
+							<ul data-bind="foreach: model.items" class="results">
+								<li class="eachResult" data-bind="click:function(){$('.videoContent').empty();$('.videoContent').append('<iframe width=\'560\' height=\'315\' src=\'https://www.youtube.com/embed/'+id.videoId+'\' frameborder=\'0\' allowfullscreen></iframe>');}">
+									<p data-bind = "text: snippet.title"></p>
+									<img data-bind="attr:{src: snippet.thumbnails.default.url}" />
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!--End of the list-->
+				<!--Displaying results-->
+				<div class="col-md-8">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Preview zone</h3>
+						</div>
+						<div class="panel-body">
+						<div class="videoContent"></div>
+						</div>
+					</div>
+				</div>
+				<!--End displaying results-->
+			</div>
+		</div>
+		<!--Bottom footer navbar-->
+
+
+
+		<div class="navbar navbar-inverse navbar-fixed-bottom">
+			<div class="container">
+				<p class="navbar-text pull-left">2014 Copyright - Frank Sam Hu</p>
+				<a href="http://github.com/Frankusky"><img src="images/github.png" class="pull-right ico"></a>
+			</div>
+		</div>
+		<!--Loading javascript-->
+		
+		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-3.2.0.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/npm.js"></script>
+		
+		<script type="text/javascript" src="js/script.js"></script>
+		<!--End loading javascript-->
+	</body>
+
+</html>
