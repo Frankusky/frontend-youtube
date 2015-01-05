@@ -30,7 +30,7 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Filters <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="#">Most viewed</a></li>
-								<li><a href="#">Less viewed</a></li>
+								<li><a href="#" data-bind='click: viewCountLess'>Less viewed</a></li>
 								<li><a href="#">Best rating</a></li>
 								<li><a href="#">Worst rating</a></li>
 								<li><a href="#">Alphabetical</a></li>
@@ -71,12 +71,12 @@
 						</div>
 						<div class="panel-body">
 							<!--Knockout showing data-->
-							<ul data-bind="foreach: model.items" class="results">
-								<li class="eachResult" data-bind="click:function(){$('.videoContent').empty();$('.videoContent').append('<iframe width=\'560\' height=\'315\' src=\'https://www.youtube.com/embed/'+id.videoId+'\' frameborder=\'0\' allowfullscreen></iframe>');}">
+							<!--<ul data-bind="foreach: model.items" class="results">
+								 <li class="eachResult" data-bind="click:function(){$('.videoContent').empty();$('.videoContent').append('<iframe width=\'560\' height=\'315\' src=\'https://www.youtube.com/embed/'+id.videoId+'\' frameborder=\'0\' allowfullscreen></iframe>');}">
 									<p data-bind = "text: snippet.title"></p>
 									<img data-bind="attr:{src: snippet.thumbnails.default.url}" />
 								</li>
-							</ul>
+							</ul>-->
 						</div>
 					</div>
 				</div>
@@ -110,8 +110,7 @@
 		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-3.2.0.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="bootstrap/js/npm.js"></script>
-		
+
 		<script type="text/javascript" src="js/script.js"></script>
 		<!--End loading javascript-->
 	</body>
