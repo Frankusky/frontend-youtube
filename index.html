@@ -2,13 +2,18 @@
 <html>
 	<head>
 		<title>Frontend Youtube</title>
-		<!--Loading CSS-->
+		<!--Bootstrap-->
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css.map">
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css.map">
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css">
+		<!--Kendo-->
+		<link rel="stylesheet" type="text/css" href="Kendo/kendo.common.min.css">
+		<link rel="stylesheet" type="text/css" href="Kendo/kendo.silver.min.css">
+		<link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1119/styles/kendo.default.min.css">
+		
+		<!--Stylesheet-->
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
-		<!--End loading CSS-->
 	</head>
 	<body>
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" >
@@ -30,9 +35,7 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Filters <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="#">Most viewed</a></li>
-								<li><a href="#" data-bind='click: viewCountLess'>Less viewed</a></li>
 								<li><a href="#">Best rating</a></li>
-								<li><a href="#">Worst rating</a></li>
 								<li><a href="#">Alphabetical</a></li>
 							</ul>
 						</li>
@@ -40,7 +43,6 @@
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Search">
 							</div>
-							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 						</form>
 					</ul>
 				</div><!-- /.navbar-collapse -->
@@ -64,26 +66,31 @@
 		<div class="container">
 			<div class="row">
 				<!--List of the filtered videos-->
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">Video channel</h3>
 						</div>
+
 						<div class="panel-body">
-							<!--Knockout showing data-->
-							<ul data-bind="foreach: jsonModel" class="results">
-								<li class="eachResult" data-bind="text: title" data-bind="text:$data">
-								</li>
-							</ul>
+						<div data-bind="kendoGrid: gridOptions"></div>
+						<script id="rowTmpl" type="text/html">
+							<tr>
+								<td data-bind="text: name"></td>
+								<td> <img width="100px" height="100px" data-bind="attr:{src: images}" /></td>
+								<td data-bind="text: view"></td>
+								<td data-bind="text: like"></td>
+							</tr>
+						</script>
 						</div>
 					</div>
 				</div>
 				<!--End of the list-->
 				<!--Displaying results-->
-				<div class="col-md-8">
+				<div class="col-md-7">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Preview zone fap</h3>
+							<h3 class="panel-title">Preview zone</h3>
 						</div>
 						<div class="panel-body">
 						<div class="videoContent"></div>
@@ -95,22 +102,27 @@
 		</div>
 		<!--Bottom footer navbar-->
 
-
-
 		<div class="navbar navbar-inverse navbar-fixed-bottom">
 			<div class="container">
-				<p class="navbar-text pull-left">2014 Copyright - Frank Sam Hu en 4</p>
+				<p class="navbar-text pull-left">2014 Copyright - Frank Sam Hu</p>
 				<a href="http://github.com/Frankusky"><img src="images/github.png" class="pull-right ico"></a>
 			</div>
 		</div>
-		<!--Loading javascript-->
-		
-		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-3.2.0.js"></script>
-		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
+		<!--Knockout-->
+		<script type="text/javascript" src="knockout/knockout-3.2.0.js"></script>
+		<script type="text/javascript" src="knockout/knockout.simpleGrid.3.0.js"></script>
+		
+		<!--JQuery-->
+		<script type="text/javascript" src="jquery/jquery-2.1.3.min.js"></script>
+		<!--Bootstrap-->
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<!--Kendo-->
+		<script type="text/javascript" src="Kendo/kendo.all.min.js"></script>
+		<script type="text/javascript" src="Kendo/knockout-kendo.min.js"></script>
+		<!--Javascript-->
 		<script type="text/javascript" src="js/script.js"></script>
-		<!--End loading javascript-->
+		
 	</body>
 
 </html>
