@@ -40,15 +40,64 @@ $(document).ready(function() {
 					};
 					console.log(idArray)
 					var knockoutYoutube = function(items){
+						this.mostViewed = function(){
+							this.items.sort(function(a, b) {
+								if(a.view<b.view){
+									return 1;
+								}else{
+									return -1
+								};
+							});
+						};
+						this.lessViewed = function(){
+							this.items.sort(function(a, b) {
+								if(a.view<b.view){
+									return -1;
+								}else{
+									return 1
+								};
+							});
+						};
+						this.bestRating = function(){
+							this.items.sort(function(a,b){
+								if(a.like<b.like){
+									return 1;
+								}else{
+									return -1
+								};
+							});
+						};
+						this.worstRating = function(){
+							this.items.sort(function(a,b){
+								if(a.like<b.like){
+									return -1;
+								}else{
+									return 1
+								};
+							});
+						};
 
-						
+						this.letterSorting = function(){
+							this.items.sort(function(a,b){
+								if(a.name<b.name){
+									return -1;
+								}else{
+									return 1
+								};
+							});
+						};
+
+						self.showVideo = function(youtubeName,youtubeVideoId,youtubeView, youtubeLike){
+							$(".videoContent").empty();
+							$(".videoContent").append("<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"embed-responsive-item\" width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/"+youtubeVideoId+"\" frameborder=\"0\" allowfullscreen></iframe></div><br><br><span>Name: <strong>"+youtubeName+"</strong></span><br><span>Views: <strong>"+youtubeView+"</strong></span><br><span>Likes: <strong>"+youtubeLike+"</strong></span><br><span>Watch on youtube: <a href='https://www.youtube.com/watch?v="+youtubeVideoId+"'>https://www.youtube.com/watch?v="+youtubeVideoId+"</a>")
+						};
 						this.items = ko.observableArray(items);
 						this.jsonModel =  ko.observableArray(jsonObject);
 						this.gridOptions = {
 							data: this.items,
 							rowTemplate: "rowTmpl",
 							useKOTemplates: true,
-							height: 430,
+							height: 500,
 							columns: [ 
 								{
 									title: "Name"

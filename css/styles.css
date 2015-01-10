@@ -1,5 +1,6 @@
 body{
 	background: url("../images/background.png");
+	margin-bottom: 50px;
 }
 .ico{
 	width: 50px;
@@ -9,33 +10,7 @@ body{
 	margin-top: 30px;
 }
 
-/*solo afecta a imagenes dentro de una panel-body*/
-.panel-body img{
-	height: 90px;
-	width: 120px;
-}
-.eachResult{
-	text-align: center;
-	margin-bottom: 10px;
-	border: solid;
-	border-color: #123121;
-	border-radius: 20px;
-	padding: 15px;
-}
-.highlight{
-	background-color: #FEFEFE;
-}
-
-.panel-body ul{
-	list-style-type: none;
-	padding: 0;
-}
-
-.panel-body li:hover {
-	background-color: #e3e4e1;
-	font-weight: bolder;
-	text-decoration: underline;
-	font-size: 18px;
-	color: red;
-	box-shadow: 0px 0px 20px #F00;
+.videoDiv{
+	height: 550px;
+	background-color: #DDD;
 }

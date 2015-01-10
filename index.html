@@ -34,9 +34,11 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Filters <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">Most viewed</a></li>
-								<li><a href="#">Best rating</a></li>
-								<li><a href="#">Alphabetical</a></li>
+								<li><a href="#" data-bind="click:mostViewed">Most viewed</a></li>
+								<li><a href="#" data-bind="click:lessViewed">Less viewed</a></li>
+								<li><a href="#" data-bind="click:bestRating">Best rating</a></li>
+								<li><a href="#" data-bind="click:worstRating">Worst rating</a></li>
+								<li><a href="#" data-bind="click:letterSorting">Alphabetical</a></li>
 							</ul>
 						</li>
 						<form class="navbar-form navbar-left" role="search">
@@ -69,13 +71,13 @@
 				<div class="col-md-5">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Video channel</h3>
+							<h3 class="panel-title">Channel video list</h3>
 						</div>
 
-						<div class="panel-body">
+						<div class="panel-body videoDiv">
 						<div data-bind="kendoGrid: gridOptions"></div>
 						<script id="rowTmpl" type="text/html">
-							<tr>
+							<tr data-bind="click:function(){showVideo(name, ids, view, like)}">
 								<td data-bind="text: name"></td>
 								<td> <img width="100px" height="100px" data-bind="attr:{src: images}" /></td>
 								<td data-bind="text: view"></td>
@@ -92,8 +94,8 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">Preview zone</h3>
 						</div>
-						<div class="panel-body">
-						<div class="videoContent"></div>
+						<div class="panel-body videoDiv">
+						<div class="videoContent">No video selected. Please select a video to watch it.</div>
 						</div>
 					</div>
 				</div>
