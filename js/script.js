@@ -97,7 +97,7 @@ $(document).ready(function() {
 							data: this.items,
 							rowTemplate: "rowTmpl",
 							useKOTemplates: true,
-							height: 500,
+							height: 540,
 							columns: [ 
 								{
 									title: "Name"

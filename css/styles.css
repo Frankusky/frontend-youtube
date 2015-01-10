@@ -11,6 +11,20 @@ body{
 }
 
 .videoDiv{
-	height: 550px;
+	height: 600px;
 	background-color: #DDD;
+}
+
+.imgLogo{
+	vertical-align: middle;
+}
+
+@font-face {
+    font-family: 'orangeJuice'; /*a name to be used later*/
+    src: url('orange_juice.ttf'); /*URL to font*/
+}
+
+.logoText{
+	font-family: 'orangeJuice';
+	font-size: 80px;
 }
