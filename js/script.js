@@ -1,7 +1,12 @@
+function loadVideo(youtubeName,youtubeVideoId,youtubeView,youtubeLike){
+	$(".videoContent").empty();
+	$(".videoContent").append("<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"embed-responsive-item\" width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/"+youtubeVideoId+"\" frameborder=\"0\" allowfullscreen></iframe></div><br><br><span>Name: <strong>"+youtubeName+"</strong></span><br><span>Views: <strong>"+youtubeView+"</strong></span><br><span>Likes: <strong>"+youtubeLike+"</strong></span><br><span>Watch on youtube: <a href='https://www.youtube.com/watch?v="+youtubeVideoId+"'>https://www.youtube.com/watch?v="+youtubeVideoId+"</a>");
+};
+
 $(document).ready(function() {
 	var stringUrl=""; //String that stores the video ID urls
 	var finalUrl = ""; //String that will have the main url
-	var maxResults = 10; //Number of max results to recieve
+	var maxResults = 50; //Number of max results to recieve
 
 	var viewCount = new Array; //List that save the viewCount data
 	var likeCount = new Array; //List that save the likeCount data
@@ -89,7 +94,7 @@ $(document).ready(function() {
 
 						self.showVideo = function(youtubeName,youtubeVideoId,youtubeView, youtubeLike){
 							$(".videoContent").empty();
-							$(".videoContent").append("<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"embed-responsive-item\" width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/"+youtubeVideoId+"\" frameborder=\"0\" allowfullscreen></iframe></div><br><br><span>Name: <strong>"+youtubeName+"</strong></span><br><span>Views: <strong>"+youtubeView+"</strong></span><br><span>Likes: <strong>"+youtubeLike+"</strong></span><br><span>Watch on youtube: <a href='https://www.youtube.com/watch?v="+youtubeVideoId+"'>https://www.youtube.com/watch?v="+youtubeVideoId+"</a>")
+							$(".videoContent").append("<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"embed-responsive-item\" width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/"+youtubeVideoId+"\" frameborder=\"0\" allowfullscreen></iframe></div><br><br><span>Name: <strong>"+youtubeName+"</strong></span><br><span>Views: <strong>"+youtubeView+"</strong></span><br><span>Likes: <strong>"+youtubeLike+"</strong></span><br><span>Watch on youtube: <a href='https://www.youtube.com/watch?v="+youtubeVideoId+"'>https://www.youtube.com/watch?v="+youtubeVideoId+"</a>");
 						};
 						this.items = ko.observableArray(items);
 						this.jsonModel =  ko.observableArray(jsonObject);
@@ -123,4 +128,19 @@ $(document).ready(function() {
 			});//second ajax call
 		}//ajax on success call
 	}); //First ajax call
+
+	$(".btn-lg").click(function(){
+		var inputString = $(".inputString").val().toLowerCase();
+		$(".inputString").val("");
+		if(inputString.length!=0){
+			$(".modal-body").empty();
+			for (var i = 0; i < maxResults; i++) {
+				var jsonTitle = jsonObject[i]['name'].toLowerCase();
+				if(jsonTitle.indexOf(inputString)>-1){
+					$(".modal-body").append("<div class='eachResult'><strong>Title: "+jsonObject[i]['name']+"</strong><br>"+"</div>");
+					$(".modal-body").append('<button type="button" onclick="loadVideo(\''+jsonObject[i]['name']+'\',\''+jsonObject[i]['ids']+'\',\''+jsonObject[i]['view']+'\',\''+jsonObject[i]['like']+'\')" class="btn btn-primary" data-dismiss="modal">Load video</button>');
+				};//if
+			};//for
+		};//if length
+	});//when search button is clicked
 }); //Document ready
